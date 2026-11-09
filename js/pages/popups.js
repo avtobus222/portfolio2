@@ -1,0 +1,11 @@
+/* Всплывающие окна: работа, картинка, кейс */
+
+function extras(el){
+ $$(".sk",el).forEach(c=>{if($(".go",c)||c.closest(".car"))return;c.style.cursor="pointer";c.onclick=()=>pop(`<button class="btn sm x" data-x>${ico("x")}</button><div class="si" style="font-size:34px">${$(".si",c).innerHTML}</div><h3 style="margin:12px 0 6px">${$("h4",c).textContent}</h3><p class="sub">${$("p",c).textContent}</p><div class="chips">${$(".chips",c).innerHTML}</div>`)});
+ $$(".xc",el).forEach(c=>{c.style.cursor="pointer";c.onclick=()=>c.classList.toggle("open")});
+}
+function openWork(w){const y=YT(w.youtube);pop(`<button class="btn sm x" data-x>${ico("x")}</button><h3>${w.title}</h3><p class="sub">${w.desc}</p>${w.video?`<video src="${w.video}" controls autoplay playsinline></video>`:y?`<iframe src="https://www.youtube.com/embed/${y}" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe>`:w.img?`<img src="${w.img}" style="width:100%;border-radius:14px;margin-top:14px">`:`<div style="height:240px;position:relative"><div class="empty">${CUBE}Работа скоро появится</div></div>`}<div class="chips">${tg(w.tags)}</div>${(w.links||[]).length?`<div class="cl">${w.links.map(l=>`<a class="btn sm" href="${l[1]}" target="_blank">${l[0]} →</a>`).join("")}</div>`:""}`)}
+function openImg(p){pop(`<button class="btn sm x" data-x>${ico("x")}</button><h3>${p.title}</h3><p class="sub">${p.desc}</p>${p.img?`<img src="${p.img}" style="width:100%;border-radius:14px;margin-top:14px">`:`<div style="height:240px;position:relative"><div class="empty">${CUBE}Работа скоро появится</div></div>`}`)}
+function openCase(g){pop(`<button class="btn sm x" data-x>${ico("x")}</button><span class="chip" style="color:var(--cy)">${g.type}</span>${g.wip?'<span class="wip">● В РАБОТЕ</span>':""}<h3 style="margin:12px 0 4px">${g.title}</h3><p class="sub">${g.desc}</p>
+ <dl class="cs"><dt>Проблема</dt><dd>${g.problem}</dd><dt>Решение</dt><dd>${g.solution}</dd><dt>Результат</dt><dd>${g.result}</dd></dl><div class="chips">${tg(g.tags)}</div>
+ <div class="cl">${g.go?`<button class="btn sm" onclick="closePop();document.getElementById('${g.go}').scrollIntoView({behavior:'smooth'})">Открыть график ↓</button>`:""}${g.link?`<a class="btn sm" href="${g.link}" target="_blank">Открыть документ →</a>`:""}</div>`)}

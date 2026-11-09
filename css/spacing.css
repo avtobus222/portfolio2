@@ -1,0 +1,15 @@
+/* Spacing overrides — now lighter, less "blocky" */
+
+.skg,.cases,.why,.tools,.g,.cnt,.xpc,.mg{gap:20px!important}
+
+/* Don't force big padding on skill cards — we control it in skills.css */
+.cf,.w,.xc,.q{padding:28px!important}
+
+.sk h4,.cf h4,.w h4{margin:14px 0 0}
+
+/* Remove the old line-clamp that was fighting interactivity */
+.sk p{ /* controlled by skills.css */ }
+
+.sk .chips,.cf .chips{gap:8px}
+
+.sk .si{transition:transform .5s var(--e)}

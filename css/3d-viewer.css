@@ -1,0 +1,9 @@
+/* Страница 3D: большой просмотр модели и панель управления */
+
+/* === 3D: модель видна целиком, панель управления под моделью, не поверх === */
+.stage3{--bar:84px;min-height:clamp(520px,68vh,800px)}
+#sv{inset:0 0 var(--bar) 0!important;height:calc(100% - var(--bar))!important;width:100%}
+.holo{bottom:var(--bar)!important}
+.stbar{left:12px!important;right:12px!important;bottom:12px!important;min-height:calc(var(--bar) - 24px);box-sizing:border-box}
+.stage3::after{bottom:calc(var(--bar) + 6px)!important}
+@media(max-width:900px){.show,.arc,.dual{grid-template-columns:1fr}.stage3{--bar:128px}}

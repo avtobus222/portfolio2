@@ -1,0 +1,41 @@
+/* Выпадающее окно «Контакты» (кнопка в меню) */
+
+#cpop{
+  position:fixed;z-index:45;top:70px;left:0;width:420px;padding:10px;
+  border-radius:26px;border:1px solid var(--line-strong);
+  background:rgba(16,12,26,.9);
+  backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);
+  box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 70px color-mix(in srgb,var(--a) 24%,transparent);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateY(-12px) scale(.93);transform-origin:var(--ox,50%) 0;
+  transition:opacity .25s,transform .4s var(--e),visibility 0s .4s;
+}
+#cpop.open{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity .25s,transform .5s var(--e)}
+.cp-h{display:flex;flex-direction:column;padding:10px 14px 12px}
+.cp-h b{font:700 18px var(--d);letter-spacing:-.02em}
+.cp-h span{font-size:13px;color:var(--mut)}
+.cp-r{display:flex;align-items:center;border-radius:18px;transition:background .25s}
+.cp-r:hover{background:rgba(255,255,255,.06)}
+#cpop.open .cp-r{animation:cpIn .55s var(--e) both}
+#cpop.open .cp-r:nth-child(2){animation-delay:.06s}#cpop.open .cp-r:nth-child(3){animation-delay:.12s}
+#cpop.open .cp-r:nth-child(4){animation-delay:.18s}#cpop.open .cp-r:nth-child(5){animation-delay:.24s}
+@keyframes cpIn{from{opacity:0;transform:translateY(10px)}}
+.cp-m{flex:1;min-width:0;display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:18px}
+.cp-i{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--a) 20%,transparent);border:1px solid color-mix(in srgb,var(--a) 45%,transparent);
+  transition:transform .4s var(--e),background .3s,box-shadow .3s}
+.cp-i svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.cp-r:hover .cp-i{transform:scale(1.08) rotate(-6deg);background:var(--a);box-shadow:0 8px 22px color-mix(in srgb,var(--a) 50%,transparent)}
+.cp-r:hover .cp-i svg{stroke:#10091a}
+.cp-t{min-width:0}
+.cp-t small{display:block;font-size:12px;color:var(--mut);line-height:1.2}
+.cp-t b{display:block;font:600 15px var(--d);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cp-c{flex:none;width:42px;height:42px;margin-right:6px;border-radius:13px;display:grid;place-items:center;color:var(--mut);transition:background .25s,color .25s,transform .25s}
+.cp-c svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cp-c:hover{background:rgba(255,255,255,.1);color:#fff;transform:scale(1.08)}
+.cp-c.ok{background:var(--a);color:#10091a}
+
+/* Номер телефона скрыт до нажатия на строку */
+.cp-reveal{width:100%;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer;font:inherit}
+.cp-reveal:hover .cp-i{transform:scale(1.08);background:var(--a);box-shadow:0 8px 22px color-mix(in srgb,var(--a) 50%,transparent)}
+.cp-reveal:hover .cp-i svg{stroke:#10091a}

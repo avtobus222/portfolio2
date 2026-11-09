@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мария Дегтяренко — геймдизайнер, 3D и Unity</title>
+<!-- Просмотр 3D-моделей (.glb): библиотека model-viewer -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<!-- Шрифты -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Стили (порядок важен) -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/3d-viewer.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/unity-arcade.css">
+<link rel="stylesheet" href="css/3d-gallery.css">
+<link rel="stylesheet" href="css/spacing.css">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/curtain.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/page-blocks.css">
+<link rel="stylesheet" href="css/skills.css">
+<link rel="stylesheet" href="css/games.css">
+<link rel="stylesheet" href="css/gamedesign.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/overlays.css">
+<link rel="stylesheet" href="css/carousel.css">
+<link rel="stylesheet" href="css/about-live.css">
+<link rel="stylesheet" href="css/vivid.css">
+<link rel="stylesheet" href="css/panels.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="bg" id="bg"></div>
+<nav id="nav" aria-label="Навигация">
+ <button data-id="home" class="on">Главная</button><button data-id="about">Обо мне</button><button data-id="3d">3D</button><button data-id="unity">Unity</button><button data-id="gd">Геймдизайн</button><button id="cbtn" class="cbtn" aria-haspopup="true" aria-expanded="false" aria-controls="cpop">Контакты<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+ </nav>
+<div id="cpop" role="dialog" aria-label="Контакты"></div>
+
+<main id="hub">
+ <div class="hl">
+  <h1><span class="mk"><span>Мария</span></span><span class="mk"><span style="--t:.42s">Дегтяренко</span></span></h1>
+  <div class="role fade" id="role" style="--t:.7s"></div>
+  <p class="who fade" style="--t:.8s">Студентка 3 курса БГУИР · Минск. Придумываю механики и головоломки, пишу GDD, моделирую в 3ds Max и собираю прототипы в Unity.</p>
+  <div class="hcta fade" style="--t:.95s"><button class="btn p" id="open">Смотреть проекты</button><button class="btn" id="hcon" data-contacts>Написать мне</button></div>
+ </div>
+ <div id="st"><div class="fl"></div><div id="ring"></div></div>
+</main>
+<div id="pop"><div id="popc"></div></div><div id="toast"></div>
+
+<!-- Скрипты (порядок важен: данные -> ядро -> главная -> страницы -> игры -> приложение) -->
+<script src="js/data/config.js"></script>
+<script src="js/data/projects.js"></script>
+<script src="js/data/about.js"></script>
+<script src="js/data/unity.js"></script>
+<script src="js/data/gamedesign.js"></script>
+<script src="js/data/sections.js"></script>
+<script src="js/data/navigation.js"></script>
+<script src="js/core/helpers.js"></script>
+<script src="js/core/legacy.js"></script>
+<script src="js/core/ui.js"></script>
+<script src="js/core/carousel.js"></script>
+<script src="js/home/intro.js"></script>
+<script src="js/home/carousel.js"></script>
+<script src="js/pages/registry.js"></script>
+<script src="js/pages/radar.js"></script>
+<script src="js/app/icons.js"></script>
+<script src="js/pages/band.js"></script>
+<script src="js/pages/blocks.js"></script>
+<script src="js/pages/popups.js"></script>
+<script src="js/pages/about.js"></script>
+<script src="js/pages/3d.js"></script>
+<script src="js/pages/unity.js"></script>
+<script src="js/pages/gamedesign.js"></script>
+<script src="js/games/memory.js"></script>
+<script src="js/games/pong.js"></script>
+<script src="js/games/maze.js"></script>
+<script src="js/games/value-curve.js"></script>
+<script src="js/app/transitions.js"></script>
+<script src="js/app/contacts.js"></script>
+<script src="js/app/effects.js"></script>
+<script src="js/app/router.js"></script>
+<script src="js/app/main.js"></script>
+</body>
+</html>

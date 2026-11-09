@@ -1,0 +1,54 @@
+/* Верхнее меню — премиум */
+
+nav{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  z-index:40;
+  display:flex;align-items:center;gap:3px;
+  padding:5px;
+  border:1px solid var(--line);
+  border-radius:99px;
+  background:rgba(18,14,28,0.72);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  max-width:94vw;
+  box-shadow:0 8px 32px rgba(0,0,0,.35);
+  animation:dn 1s .15s var(--e2) both;
+}
+@keyframes dn{from{opacity:0;transform:translate(-50%,-28px)}}
+
+nav button{
+  padding:10px 18px;
+  border-radius:99px;
+  font:500 14px var(--d);
+  color:var(--mut);
+  transition:color .3s,background .3s,transform .25s;
+  white-space:nowrap;
+}
+nav button:hover{color:#fff}
+nav button.on{
+  color:#120e1a;
+  background:var(--a);
+  font-weight:600;
+  box-shadow:0 4px 16px color-mix(in srgb,var(--a) 40%,transparent);
+}
+nav a{
+  margin-left:4px;
+  padding:10px 18px;
+  border-radius:99px;
+  border:1px solid var(--line);
+  font:600 14px var(--d);
+  transition:.3s;
+}
+nav a:hover{background:rgba(255,255,255,0.08);border-color:var(--line-strong)}
+
+nav .cbtn{display:inline-flex;align-items:center;gap:6px}
+nav .cbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s var(--e)}
+nav .cbtn.open{color:#fff;background:rgba(255,255,255,.1)}
+nav .cbtn.open svg{transform:rotate(180deg)}
+
+@media(max-width:860px){
+  nav button{padding:9px 12px;font-size:13px}
+  nav a{display:none}
+  nav{overflow-x:auto;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+}

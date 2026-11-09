@@ -1,0 +1,152 @@
+/* Умения — теперь интерактивные, не стены текста */
+
+.skg{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;
+  margin-top:22px;
+}
+
+.sk{
+  position:relative;
+  padding:28px 24px 24px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:
+    radial-gradient(280px circle at var(--mx,40%) var(--my,-20%),color-mix(in srgb,var(--pk) 18%,transparent),transparent 70%),
+    rgba(255,255,255,0.03);
+  transition:transform .4s var(--e),border-color .35s,box-shadow .4s,background .4s;
+  cursor:pointer;
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.sk:hover{
+  transform:translateY(-8px) scale(1.01);
+  border-color:color-mix(in srgb,var(--pk) 60%,transparent);
+  box-shadow:
+    0 24px 50px -12px color-mix(in srgb,var(--acc2) 35%,transparent),
+    0 0 0 1px color-mix(in srgb,var(--pk) 25%,transparent);
+  background:
+    radial-gradient(320px circle at var(--mx,50%) var(--my,30%),color-mix(in srgb,var(--pk) 22%,transparent),transparent 65%),
+    rgba(255,255,255,0.06);
+}
+
+.sk .si{
+  font-size:32px;
+  width:58px;height:58px;
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle,color-mix(in srgb,var(--pk) 28%,transparent),transparent 70%);
+  border:1px solid color-mix(in srgb,var(--pk) 30%,transparent);
+  transition:transform .5s var(--e);
+  flex-shrink:0;
+}
+.sk:hover .si{transform:translateY(-6px) scale(1.12) rotate(-6deg)}
+
+.sk h4{
+  font-size:18px;
+  margin:16px 0 0;
+  letter-spacing:-.02em;
+  transition:color .3s;
+}
+.sk:hover h4{color:#fff}
+
+/* Текст скрыт по умолчанию, появляется при наведении */
+.sk p{
+  margin:10px 0 0;
+  color:var(--mut);
+  font-size:14px;
+  line-height:1.55;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:max-height .45s var(--e),opacity .35s,margin .35s;
+}
+.sk:hover p{
+  max-height:120px;
+  opacity:1;
+  margin-top:12px;
+}
+
+.sk .chips{
+  margin-top:auto;
+  padding-top:14px;
+  opacity:.7;
+  transition:opacity .3s;
+}
+.sk:hover .chips{opacity:1}
+
+.sk .go{
+  display:inline-flex;
+  margin-top:14px;
+  padding:8px 0;
+  color:var(--cy);
+  font:600 13.5px var(--d);
+  background:none;border:0;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .35s,transform .35s,color .25s;
+}
+.sk:hover .go{opacity:1;transform:none}
+.sk .go:hover{color:#fff}
+
+/* Инструменты — компактные и живые */
+.tools{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+.tl{
+  padding:20px 22px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,0.03);
+  transition:transform .35s var(--e),border-color .3s,box-shadow .35s;
+  cursor:default;
+}
+.tl:hover{
+  transform:translateY(-4px);
+  border-color:color-mix(in srgb,var(--pk) 50%,transparent);
+  box-shadow:0 12px 32px color-mix(in srgb,var(--acc2) 25%,transparent);
+}
+.tl b{display:block;font:700 15px var(--d);color:#fff;letter-spacing:-.01em}
+.tl span{display:block;margin-top:6px;color:var(--mut);font-size:13.5px;line-height:1.5}
+
+/* Опыт */
+.xpc{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px}
+.xc{
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:
+    linear-gradient(155deg,color-mix(in srgb,var(--acc2) 18%,transparent),transparent 60%),
+    rgba(255,255,255,0.03);
+  transition:transform .35s,border-color .3s;
+}
+.xc:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--pk) 40%,transparent)}
+.xc .ky{color:var(--cy);font:600 11px var(--d);letter-spacing:2.5px}
+.xc h4{font-size:19px;margin:12px 0 6px;letter-spacing:-.02em}
+.xc em{color:var(--pk);font-style:normal;font-size:13.5px}
+.xc .pts{margin-top:16px;padding-left:18px;color:var(--mut);font-size:14px;line-height:1.6}
+.xc .pts li{margin-bottom:6px}
+
+/* CTA */
+.cta{
+  margin-top:64px;
+  padding:36px 40px;
+  border-radius:24px;
+  border:1px solid color-mix(in srgb,var(--pk) 50%,transparent);
+  background:
+    linear-gradient(125deg,color-mix(in srgb,var(--pk) 14%,transparent),color-mix(in srgb,var(--acc2) 22%,transparent));
+  display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  box-shadow:0 20px 50px color-mix(in srgb,var(--acc2) 15%,transparent);
+}
+#lw .cta h3{margin:0;color:#fff;font-size:22px;letter-spacing:-.02em}
+.cta p{margin:10px 0 0;color:#d4c8f0;max-width:540px;font-size:15.5px;line-height:1.6}
+
+.sdet small{display:block;margin-top:10px;color:var(--cy);font-size:13px}

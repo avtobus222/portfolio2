@@ -1,0 +1,5 @@
+/* Стабильная ширина страницы при переходах */
+
+/* === стабильная ширина при переходах (без прыжка от полосы прокрутки) === */
+.pg{overflow-y:scroll!important;overflow-x:hidden;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#ffffff30 transparent}
+.pg #lw{box-sizing:border-box;width:100%}

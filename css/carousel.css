@@ -1,0 +1,53 @@
+/* Горизонтальные карусели: «Что я умею», кейсы */
+
+.car{margin-top:20px;position:relative}
+.car-track{
+  display:flex;gap:20px;
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  padding:14px 4px 22px;
+  margin:-14px -4px 0;
+  cursor:grab;outline:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 40px),transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 40px),transparent);
+}
+.car-track::-webkit-scrollbar{display:none}
+.car-track.dg{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.car-it{flex:0 0 min(340px,84%);scroll-snap-align:start;display:flex;min-width:0}
+.car-it>*{width:100%}
+.car-it{opacity:.78;transform:scale(.98);transition:opacity .45s var(--e),transform .45s var(--e)}
+.car-it.on,.car-it:hover{opacity:1;transform:none}
+.cs-wide .car-it{flex-basis:min(470px,88%)}
+
+.car-ui{display:flex;align-items:center;gap:16px;margin-top:6px}
+.car-bar{flex:1;height:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.car-bar i{display:block;height:100%;transform-origin:0 50%;background:linear-gradient(90deg,var(--pk),var(--acc2),var(--cy));box-shadow:0 0 12px var(--pk);transition:transform .5s var(--e)}
+.car-n{font:600 13px var(--d);color:var(--mut);min-width:58px;text-align:center;letter-spacing:.04em}
+.car-b{
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(255,255,255,.05);font:400 26px/1 var(--d);color:#fff;
+  display:flex;align-items:center;justify-content:center;padding-bottom:3px;
+  transition:transform .25s,background .3s,border-color .3s,box-shadow .3s,opacity .3s;
+}
+.car-b:hover:not(:disabled){background:color-mix(in srgb,var(--pk) 25%,transparent);border-color:var(--pk);transform:scale(1.1);box-shadow:0 8px 24px color-mix(in srgb,var(--pk) 35%,transparent)}
+.car-b:disabled{opacity:.3;cursor:default}
+
+/* карточка умения: текст всегда виден */
+.car .sk{min-height:260px;height:100%}
+.car .sk p{max-height:none;opacity:1;margin-top:12px;overflow:visible}
+.car .sk .chips{opacity:1}
+.car .sk .go{opacity:1;transform:none}
+.car .sk:hover{transform:translateY(-4px)}
+.car .sk .si{font-size:30px}
+
+/* карточка кейса */
+.car .cf{height:100%;min-height:290px}
+.car .cf h4{font-size:21px}
+.car .cf p{font-size:15px}
+
+/* компактная строка инструментов (вместо большого блока) */
+.toolrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}
+.toolrow>span{font:600 11px var(--d);letter-spacing:2.5px;text-transform:uppercase;color:var(--mut);margin-right:4px}
+.toolrow b{font:600 13.5px var(--d);padding:7px 15px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.04);transition:.3s var(--e)}
+.toolrow b:hover{border-color:var(--pk);background:color-mix(in srgb,var(--pk) 16%,transparent);transform:translateY(-2px)}

@@ -1,0 +1,33 @@
+/* Появление блоков + tilt/spotlight */
+
+.pg .rv{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .75s var(--e2),transform .75s var(--e2);
+}
+.pg .rv.in{
+  opacity:1;
+  transform:none;
+}
+
+.tilt{
+  position:relative;
+  transition:transform .4s var(--e),border-color .3s,box-shadow .4s;
+  will-change:transform;
+}
+.tilt .spot{
+  position:absolute;inset:0;border-radius:inherit;
+  pointer-events:none;opacity:0;
+  transition:opacity .4s;
+  z-index:2;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--a) 16%,transparent),transparent 60%);
+}
+.tilt:hover .spot{opacity:1}
+.tilt:hover{
+  box-shadow:0 22px 55px -20px color-mix(in srgb,var(--acc2) 40%,transparent);
+}
+
+.btn.main,.btn.p{transition:transform .28s var(--e),box-shadow .3s,background .3s}
+.pbar{position:fixed;left:0;right:0;top:0;height:2.5px;z-index:50;pointer-events:none}
+.pbar i{display:block;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--pk),var(--acc),var(--cy))}
+.bign,.deco{will-change:transform}

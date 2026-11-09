@@ -1,0 +1,5 @@
+/* Адаптив для телефонов и «хлебные крошки» */
+
+@media(max-width:900px){.prof{grid-template-columns:1fr}.pcd{position:static}#lw{padding-top:150px}.show,.arc,.dual,.lh{grid-template-columns:1fr}.deco,.bign{display:none}.lh{padding:26px}.cta{padding:24px}.steps button{width:60px}.steps em{font-size:11px}}
+
+.crumb{display:flex;align-items:center;gap:14px;margin-bottom:26px;color:var(--mut);font-size:13px}

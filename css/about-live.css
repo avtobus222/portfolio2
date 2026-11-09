@@ -1,0 +1,96 @@
+/* «Обо мне»: яркий блок «Ищу стажировку», светящиеся панели, живая диаграмма, лента по годам */
+
+/* ===== светящаяся рамка у панелей ===== */
+@property --ang{syntax:"<angle>";initial-value:0deg;inherits:false}
+.glow{position:relative}
+.glow::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
+  background:conic-gradient(from var(--ang),transparent 0 62%,var(--pk) 82%,var(--acc2) 92%,transparent);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:ang 7s linear infinite;opacity:.9;
+}
+@keyframes ang{to{--ang:360deg}}
+.ab-intro,.ab-skills,.ab-path{border-color:color-mix(in srgb,var(--pk) 22%,transparent)}
+.ab-intro{background:radial-gradient(90% 70% at 0% 0%,color-mix(in srgb,var(--pk) 24%,transparent),transparent 70%),var(--card)}
+
+/* ===== «Ищу стажировку»: без точки, ярко, с блеском ===== */
+.ab-seek{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  margin:0 0 26px;padding:22px 28px;border-radius:20px;
+  border:1px solid color-mix(in srgb,var(--pk) 80%,#fff);
+  background:linear-gradient(115deg,var(--pk),#c13cff 60%,var(--acc2));
+  box-shadow:0 14px 44px -8px color-mix(in srgb,var(--pk) 70%,transparent),0 0 0 0 color-mix(in srgb,var(--pk) 50%,transparent);
+  color:#fff;cursor:pointer;
+  transition:transform .35s var(--e),box-shadow .35s;
+  animation:seekPulse 3.4s ease-in-out infinite;
+}
+@keyframes seekPulse{50%{box-shadow:0 18px 56px -6px color-mix(in srgb,var(--pk) 85%,transparent),0 0 0 8px color-mix(in srgb,var(--pk) 14%,transparent)}}
+.ab-seek:hover{transform:translateY(-4px) scale(1.012)}
+.ab-seek .sh{position:absolute;top:0;bottom:0;left:-40%;width:30%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:sheen 3.6s ease-in-out infinite}
+@keyframes sheen{0%,35%{left:-40%}80%,100%{left:130%}}
+.ab-seek .sk-t{position:relative;display:flex;flex-direction:column;gap:10px;flex:1 1 260px}
+.ab-seek b{font:800 clamp(20px,1.9vw,27px)/1.1 var(--d);letter-spacing:-.02em;color:#fff;text-shadow:0 2px 14px rgba(60,0,60,.35)}
+.ab-seek .sk-ch{display:flex;gap:8px;flex-wrap:wrap}
+.ab-seek .sk-ch,.ab-seek .sk-ch em{color:#fff}
+.ab-seek .sk-ch em{font:600 13px var(--d);font-style:normal;padding:5px 13px;border-radius:99px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)}
+.ab-seek .sk-go{position:relative;font:700 15px var(--d);padding:12px 22px;border-radius:99px;background:#fff;color:#a0146a;transition:transform .3s var(--e),box-shadow .3s}
+.ab-seek:hover .sk-go{transform:translateX(5px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+
+/* ===== диаграмма навыков ===== */
+.rd{position:relative}
+.rdsvg{width:100%;max-width:440px;margin:0 auto;display:block;overflow:visible}
+.rdsvg .lab{fill:#ddd2ff;font-family:var(--d);font-weight:600;transition:fill .25s,font-size .25s,transform .25s;cursor:default}
+.rdsvg .lab.f{fill:#fff;font-size:14px}
+.rdsvg .spk{transition:stroke .25s,stroke-width .25s}.rdsvg .spk.f{stroke:var(--pk);stroke-width:2}
+.rdsvg .dot{transition:r .25s,fill .25s;filter:drop-shadow(0 0 6px var(--pk))}.rdsvg .dot.f{r:9;fill:var(--pk)}
+.rdsvg #rdp{filter:drop-shadow(0 0 14px color-mix(in srgb,var(--pk) 60%,transparent))}
+.rd-read{display:flex;justify-content:center;align-items:baseline;gap:12px;min-height:30px;margin-top:4px;font-family:var(--d)}
+.rd-read b{font-size:16px;color:#fff}.rd-read span{color:var(--pk);font-weight:600;font-size:15px}
+.rd-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:14px}
+.rd-list button{display:grid;grid-template-columns:minmax(0,1fr) 54px 36px;align-items:center;gap:10px;padding:7px 8px;border-radius:10px;text-align:left;font-size:13px;color:var(--mut);transition:background .25s,color .25s}
+.rd-list button.f{background:color-mix(in srgb,var(--pk) 16%,transparent);color:#fff}
+.rd-list button span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rd-list i{display:block;height:5px;border-radius:5px;background:#ffffff1a;overflow:hidden}
+.rd-list u{display:block;height:100%;width:0;border-radius:5px;background:linear-gradient(90deg,var(--acc2),var(--pk));transition:width 1.2s var(--e2)}
+.rd-list.in u{width:var(--v)}
+.rd-list em{font-style:normal;text-align:right;font-size:12px}
+@media(max-width:560px){.rd-list{grid-template-columns:1fr}}
+
+/* ===== лента по годам ===== */
+.ab-path{overflow:hidden;padding:26px 0 24px;background:radial-gradient(70% 60% at 50% 0%,color-mix(in srgb,var(--pk) 20%,transparent),transparent 72%),var(--card)}
+.tl-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 32px}
+.tl-year{font:800 clamp(32px,4.4vw,60px)/1 var(--d);letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.5px var(--pk);text-shadow:0 0 40px color-mix(in srgb,var(--pk) 55%,transparent)}
+.tl-year span{display:inline-block}
+.tl-year .sw{animation:yearIn .55s var(--e)}
+@keyframes yearIn{from{opacity:0;transform:translateY(40%) scale(.9);filter:blur(6px)}}
+.tl-view{
+  position:relative;margin-top:14px;padding:18px 0 28px;overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;outline:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+}
+.tl-view.dg{cursor:grabbing}
+.tl-view:focus-visible{outline:2px solid var(--pk);outline-offset:-6px;border-radius:24px}
+.tl-track{position:relative;display:flex;gap:var(--gap,24px);width:max-content;will-change:transform;padding-top:34px}
+.tl-track::before{content:"";position:absolute;left:0;right:0;top:11px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pk),var(--acc2),var(--pk));opacity:.55;box-shadow:0 0 14px var(--pk)}
+.tc{position:relative;flex:none;width:var(--cw,400px);display:flex;opacity:.5;transform:scale(.95);transform-origin:50% 0;transition:opacity .5s var(--e),transform .5s var(--e)}
+.tc.on{opacity:1;transform:scale(1)}
+.tc-dot{position:absolute;left:50%;top:-30px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--bg);border:3px solid var(--pk);transition:.4s var(--e)}
+.tc.on .tc-dot{background:var(--pk);transform:scale(1.35);box-shadow:0 0 0 7px color-mix(in srgb,var(--pk) 26%,transparent),0 0 26px var(--pk)}
+.tc-in{width:100%;display:flex;flex-direction:column;padding:26px 28px;border-radius:24px;border:1px solid color-mix(in srgb,var(--pk) 28%,transparent);background:radial-gradient(90% 60% at 0% 0%,color-mix(in srgb,var(--pk) 34%,transparent),transparent 65%),linear-gradient(160deg,#2a1a3a,#150f20 75%);transition:border-color .5s,box-shadow .5s}
+.tc.on .tc-in{border-color:var(--pk);box-shadow:0 22px 50px -14px color-mix(in srgb,var(--pk) 55%,transparent),inset 0 0 60px color-mix(in srgb,var(--pk) 14%,transparent)}
+.tc-y{font:700 13px var(--d);letter-spacing:.1em;color:var(--pk);text-transform:uppercase}
+.tc h4{font-size:23px;line-height:1.2;margin:12px 0 6px;color:#fff}
+.tc em{font-style:normal;font-size:14.5px;color:#ffb3dc}
+.tc p{margin-top:12px;color:var(--mut);font-size:15px;line-height:1.6}
+.tc-a{align-self:flex-start;margin-top:auto;padding:11px 20px;border-radius:99px;background:var(--pk);color:#fff;font:700 14px var(--d);box-shadow:0 8px 24px color-mix(in srgb,var(--pk) 45%,transparent);cursor:pointer;transition:transform .3s var(--e),box-shadow .3s;display:inline-flex}
+.tc p+.tc-a{margin-top:18px}
+.tc-a:hover{transform:translateY(-3px);box-shadow:0 14px 34px color-mix(in srgb,var(--pk) 60%,transparent)}
+.mailc .tc-in{background:linear-gradient(115deg,var(--pk),#c13cff 65%,var(--acc2));border-color:#fff4}
+.mailc .tc-y,.mailc em,.mailc p{color:#fff}
+.mailc .tc-a{background:#fff;color:#a0146a}
+.tl-ui{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:10px}
+.tl-hint{font-size:13px;color:var(--mut)}
+iframe.cert{width:100%;height:68vh;border:0;border-radius:14px;background:#fff;display:block}
+@media(max-width:700px){.tl-head{padding:0 18px}.ab-tabs{margin:0!important}}

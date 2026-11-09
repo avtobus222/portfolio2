@@ -1,0 +1,7 @@
+/* Геймдизайн: кривая ценности, симулятор */
+
+/* gd */
+.cs{margin:14px 0 0}.cs dt{color:var(--cy);font:11px Geologica;letter-spacing:2px;margin-top:14px;text-transform:uppercase}.cs dd{margin:4px 0 0;color:var(--mut)}
+.vc{margin-top:14px;padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--card)}.leg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.lgb{display:flex;gap:8px;align-items:center;padding:7px 14px;border:1px solid var(--line);border-radius:30px;cursor:pointer;font-size:13px;background:none;color:var(--text);transition:.2s}.lgb i{width:10px;height:10px;border-radius:50%}.lgb.off{opacity:.35}.lgb:hover{border-color:var(--pk)}
+.vl{animation:dr 1.8s backwards}@keyframes dr{from{stroke-dasharray:1400;stroke-dashoffset:1400}}

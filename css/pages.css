@@ -1,0 +1,23 @@
+/* Внутренние страницы: контейнер и ровные блоки */
+
+/* pages */
+.pg{position:fixed;inset:0;z-index:20;overflow:auto;background:radial-gradient(70vmax 55vmax at 88% -12%,color-mix(in srgb,var(--a) 30%,transparent),transparent 70%),radial-gradient(50vmax 40vmax at 0% 110%,color-mix(in srgb,var(--a) 14%,transparent),transparent),var(--bg)}
+
+/* === ровные блоки === */
+.skg,.cases,.why,.tools,.cnt,.g{grid-auto-rows:1fr;align-items:stretch}
+.skg{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.cases{grid-template-columns:repeat(2,minmax(0,1fr))}@media(min-width:1280px){.cases{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:700px){.cases{grid-template-columns:1fr}}.cf .chip{align-self:flex-start}.cf .wip{display:block;margin:6px 0 0}
+.why{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.cf,.w,.tools>.tl,.cnt>div{height:100%;box-sizing:border-box}
+.cf{display:flex;flex-direction:column}
+.cf .chips{margin-top:auto;padding-top:12px}
+.cf .more{margin-top:12px}
+
+.cb{display:flex;flex-direction:column;height:100%}.cb .inf{flex:1;display:flex;flex-direction:column}.cb .inf .chips{margin-top:auto;padding-top:12px}
+.cb .v{height:230px;flex:none}
+.dual,.arc{align-items:stretch}.dual>*,.arc>*{min-width:0}
+.dual>.vc{height:100%;box-sizing:border-box}
+.show{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.info3{box-sizing:border-box;height:100%}
+.thumbs .th3{width:150px;height:90px;display:flex;flex-direction:column;justify-content:center}

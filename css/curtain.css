@@ -1,0 +1,7 @@
+/* Переход между разделами: спокойное затемнение с названием */
+
+#cur{position:fixed;inset:0;z-index:200;pointer-events:all;background:radial-gradient(60vmax 40vmax at 50% 50%,color-mix(in srgb,var(--cc) 12%,#0a0810),#0a0810 80%);opacity:0}
+#cur .cl2{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;pointer-events:none}
+#cur .ct2{font:700 clamp(32px,5vw,64px)/1.1 Geologica,system-ui,sans-serif;color:#fff;letter-spacing:-.02em;text-align:center;padding:0 5vw}
+#cur .cbar{display:block;width:min(160px,40vw);height:2px;border-radius:2px;background:var(--cc);opacity:.8;transform:scaleX(0);transform-origin:left}
+@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
